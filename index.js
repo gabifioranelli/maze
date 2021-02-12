@@ -2,8 +2,8 @@ const { Engine, Render, Runner, World, Bodies, Body, Events } = Matter;
 
 const cellsHorizontal = 20;
 const cellsVertical = 18;
-const width = window.innerWidth;
-const height = window.innerHeight;
+const width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) * 0.7;
+const height = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) * 0.8;
 
 const unitLengthX = width / cellsHorizontal;
 const unitLengthY = height / cellsVertical;
@@ -198,19 +198,19 @@ document.addEventListener('keydown', event => {
   const { x, y } = ball.velocity;
 
   if (event.keyCode === 87) {
-    Body.setVelocity(ball, { x, y: y - 5 });
+    Body.setVelocity(ball, { x, y: - 5 });
   }
 
   if (event.keyCode === 68) {
-    Body.setVelocity(ball, { x: x + 5, y });
+    Body.setVelocity(ball, { x: 5, y });
   }
 
   if (event.keyCode === 83) {
-    Body.setVelocity(ball, { x, y: y + 5 });
+    Body.setVelocity(ball, { x, y: 5 });
   }
 
   if (event.keyCode === 65) {
-    Body.setVelocity(ball, { x: x - 5, y });
+    Body.setVelocity(ball, { x: - 5, y });
   }
 })
 
