@@ -234,3 +234,28 @@ Events.on(engine, 'collisionStart', event => {
     }
   });
 });
+
+window.addEventListener("deviceorientation", handleOrientation, true);
+
+function handleOrientation(event) {
+  var absolute = event.absolute;
+  var alpha    = event.alpha;
+  var beta     = event.beta;
+  var gamma    = event.gamma;
+
+  const { x, y } = ball.velocity;
+
+  if(gamma < -10) {
+    Body.setVelocity(ball, { x: - 5, y });
+  }
+  else if(gamma > 10) {
+    Body.setVelocity(ball, { x: 5, y });
+  }
+
+  if(beta < -10) {
+    Body.setVelocity(ball, { x , y: -5 });
+  }
+  else if(beta > 10) {
+    Body.setVelocity(ball, { x, y: 5 });
+  }
+}
