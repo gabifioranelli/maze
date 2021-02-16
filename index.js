@@ -238,11 +238,7 @@ Events.on(engine, 'collisionStart', event => {
 window.addEventListener("deviceorientation", handleOrientation, true);
 
 function handleOrientation(event) {
-  var absolute = event.absolute;
-  var alpha    = event.alpha;
-  var beta     = event.beta;
-  var gamma    = event.gamma;
-
+  const { beta, gamma } = event;
   const { x, y } = ball.velocity;
 
   if(gamma < -10) {
